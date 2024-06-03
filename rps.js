@@ -10,4 +10,10 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
+ function getHumanChoice() {
+    let user = prompt("Enter choice: ");
+
+    return user;
+ }
+
+ console.log(getHumanChoice());
