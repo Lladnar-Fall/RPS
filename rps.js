@@ -11,37 +11,38 @@ function getComputerChoice() {
 }
 
  function getHumanChoice() {
-    let user = prompt("Enter choice: ");
+    let user = prompt(`Round ${round} Enter choice: `);
 
     return user;
 }
 
 
-const humanScore = 0;
-const computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
+let round = 1;
 
 function playRound(humanChoice,computerChoice) {
     if (humanChoice.toLowerCase() === "rock" && computerChoice == "scissors") {
-        return alert("You win!! rock beats scissors");
-        ++humanScore
+        alert("You win!! rock beats scissors");
+        humanScore++;
     } else if (humanChoice.toLowerCase() === "rock" && computerChoice == "rock") {
-        return alert("Draw both picked rock");
+        alert("Draw both picked rock");
     }
     else if (humanChoice.toLowerCase() === "paper" && computerChoice == "rock") {
-        return alert("You win!! paper smothers rock");
-        ++humanScore
+        alert("You win!! paper smothers rock");
+        humanScore++;
     } else if (humanChoice.toLowerCase() === "paper" && computerChoice == "paper") {
-        return alert("Draw both picked paper");
+        alert("Draw both picked paper");
     }
     else if (humanChoice.toLowerCase() === "scissors" && computerChoice == "paper") {
-        return alert("You win!! scissors cuts paper");
-        ++humanScore;
+        alert("You win!! scissors cuts paper");
+        humanScore++;
     } else if (humanChoice.toLowerCase() === "scissors" && computerChoice == "scissors") {
-        return alert("Draw both pick scissors")
+        alert("Draw both pick scissors")
     }
     else {
-        return (`You lose, you picked ${humanChoice} and comp picked ${computerChoice}`);
-        ++humanScore;
+        alert(`You lose, you picked ${humanChoice} and comp picked ${computerChoice}`);
+        computerScore++;
     }
 
 }
@@ -52,7 +53,10 @@ function playGame() {
         const compChoice = getComputerChoice();
 
         playRound(playerChoice,compChoice);
+        round++;
     }
-    humanScore > computerScore ? alert(`Player won the game!🥳🥳, Player points: ${humanScore} Computer points: ${computerScore}`) : alert(`Computer won the game!🥳🥳, Computer points: ${computerScore} Player points: ${humanScore}`);
+    humanScore > computerScore ? alert(`Player won the game!, Player points: ${humanScore} Computer points: ${computerScore}`) : alert(`Computer won the game!🥳🥳, Computer points: ${computerScore} Player points: ${humanScore}`);
 }
 
+
+playGame()
