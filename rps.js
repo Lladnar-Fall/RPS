@@ -14,6 +14,8 @@ function getComputerChoice() {
     let user = prompt("Enter choice: ");
 
     return user;
- }
+}
 
- console.log(getHumanChoice());
+
+const humanScore = 0
+const computerScore = 0
