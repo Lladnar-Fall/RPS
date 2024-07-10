@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: rgb(58, 58, 58);
+  color: white;
+  font-family: Arial;
+  
+
+}
+
+.title {
+  background-color: rgb(25, 25, 25);
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.game-content {
+  background-color: rgb(34, 34, 34);
+  padding: 50px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+
+.score {
+  border: 5px solid rgb(34, 34, 34);;
+  margin-right: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.player-pic-cont, .comp-pic-cont {
+  border: 2px solid rgb(34, 34, 34);
+}
+
+.player-pic, .comp-pic {
+  background-color: transparent;
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
+
+.move-container {
+  display: flex;
+  gap: 5px;
+}
+
+.move-pic {
+  height: 50px;
+}
+
+.move-icon {
+  background-color: transparent;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border: 3px solid white;
+  
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+
+.js-result, .js-desc {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+
+.js-result {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+.move-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-direction: row;
+}
+
+.moves {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  padding-bottom: 10px;
+}
+
+
+.show-moves {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.player-move, .comp-move {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.comp-score, .player-score {
+  display: flex;
+  gap: 5px;
+}
+
+
+@media (max-width: 420px) {
+  .game-content{
+    padding: 30px;
+  }
+
+  .move-container {
+    justify-content: space-between;
+  }
+
+  .move-pic {
+    height: 30px;
+  }
+
+  .move-icon {
+    height: 70px;
+    width: 70px;
+    border-radius: 30px;
+  }
+
+  .js-desc {
+    font-size: 12px;
+  }
+}

@@ -1,3 +1,7 @@
+let score = {player: 0, computer: 0};
+
+updateScore();
+
 function getComputerChoice() {
     let num = Math.floor(Math.random() * 3);
 
@@ -10,53 +14,82 @@ function getComputerChoice() {
     }
 }
 
- function getHumanChoice() {
-    let user = prompt(`Round ${round} Enter choice: `);
 
-    return user;
-}
-
-
-let humanScore = 0;
-let computerScore = 0;
 let round = 1;
 
+let winResult = document.querySelector('.js-result');
+let description = document.querySelector('.js-desc');
+
+
+
 function playRound(humanChoice,computerChoice) {
+    let result = '';
+    let desc = '';
     if (humanChoice.toLowerCase() === "rock" && computerChoice == "scissors") {
-        alert("You win!! rock beats scissors");
-        humanScore++;
+        score.player += 1;
+        result = "You win!!";
+        desc = "rock beats scissors";
+        
     } else if (humanChoice.toLowerCase() === "rock" && computerChoice == "rock") {
-        alert("Draw both picked rock");
+        result = "Draw ";
+        desc = "both picked rock";
     }
     else if (humanChoice.toLowerCase() === "paper" && computerChoice == "rock") {
-        alert("You win!! paper smothers rock");
-        humanScore++;
+        score.player += 1;
+        result = "You win!!";
+        desc = "paper smothers rock";
+        
     } else if (humanChoice.toLowerCase() === "paper" && computerChoice == "paper") {
-        alert("Draw both picked paper");
+        result = "Draw";
+        desc = "both picked paper";
     }
     else if (humanChoice.toLowerCase() === "scissors" && computerChoice == "paper") {
-        alert("You win!! scissors cuts paper");
-        humanScore++;
+        score.player += 1;
+        result = "You win!!";
+        desc = "scissors cuts paper";
+
     } else if (humanChoice.toLowerCase() === "scissors" && computerChoice == "scissors") {
-        alert("Draw both pick scissors")
+        result = "Draw";
+        desc = "both pick scissors";
     }
     else {
-        alert(`You lose, you picked ${humanChoice} and comp picked ${computerChoice}`);
-        computerScore++;
+        score.computer += 1;
+        result = 'You lose';
+        desc = `you picked ${humanChoice} and comp picked ${computerChoice}`
+        
     }
+    
+    updateScore();
 
+    winResult.textContent = result;
+    description.textContent = desc;
+
+    document.querySelector('.player-move').innerHTML = `<img src="images/${humanChoice}-emoji.png" class="moves">`;
+    document.querySelector('.comp-move').innerHTML= `<img src="images/${computerChoice}-emoji.png" class="moves">`;
 }
 
 function playGame() {
-    for (let i = 0; i < 5; i++) {
-        const playerChoice = getHumanChoice();
-        const compChoice = getComputerChoice();
-
-        playRound(playerChoice,compChoice);
-        round++;
-    }
-    humanScore > computerScore ? alert(`Player won the game!, Player points: ${humanScore} Computer points: ${computerScore}`) : alert(`Computer won the game!🥳🥳, Computer points: ${computerScore} Player points: ${humanScore}`);
+        
+    document.querySelector('.js-rock-btn').addEventListener('click', () => {
+        let computerChoice = getComputerChoice();
+        playRound('rock',computerChoice);
+    });
+    
+    document.querySelector('.js-paper-btn').addEventListener('click', () => {
+        let computerChoice = getComputerChoice();
+        playRound('paper',computerChoice);
+    });
+    
+    document.querySelector('.js-scissor-btn').addEventListener('click', () => {
+        let computerChoice = getComputerChoice();
+        playRound('scissors',computerChoice);
+    });
+    
 }
 
+function updateScore() {
+    document.querySelector('.js-player-score').innerHTML = score.player;
+    document.querySelector('.js-comp-score').innerHTML = score.computer;
+}
 
 playGame()

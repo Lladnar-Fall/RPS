@@ -3,16 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="rps.css">
   <title>Document</title>
 </head>
 <body>
-  <button class="js-rock-btn">Rock</button>
+  <header class="title">Rock Paper Scissors</header>
+  <div class="container">
+    
+    <div class="game-content">
+      <div class="move-container">
+        <button class="js-rock-btn move-icon"><img src="images/rock-emoji.png" class="move-pic"></button>
 
-  <button class="js-paper-btn">Paper</button>
+        <button class="js-paper-btn move-icon"><img src="images/paper-emoji.png" class="move-pic"></button>
 
-  <button class="js-scissor-btn">Scrissors</button>
-  
-  <div></div>
+        <button class="js-scissor-btn move-icon"><img src="images/scissors-emoji.png" class="move-pic"></button>
+      </div>
+      
+      
+      <div class="move-box">
+        <div class="show-moves">
+          <p >Player: </p>
+          <div class="player-move">❔</div>
+        </div>
+        <div class="show-moves">
+          <div class="comp-move">❔</div>
+          <p > :Comp</p>
+        </div>
+      </div>
+      
+      <p class="js-result"></p>
+      <p class="js-desc"></p>
+
+      <div class="score-container">
+        <div class="player-score">
+          <p>Player: <p class="js-player-score">0</p></p>
+        </div>
+        <div class="comp-score">
+          <p>Computer: <p class="js-comp-score">0</p></p>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
   <script src="rps.js"></script>
 </body>
 </html>
